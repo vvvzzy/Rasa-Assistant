@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>星厨点餐助手</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="bubbleLayer" class="bubble-layer" aria-hidden="true"></div>
+  <div id="particleLayer" class="particle-layer" aria-hidden="true"></div>
+
+  <main class="page-shell">
+    <section class="hero-panel">
+      <div class="brand-row">
+        <div class="brand-logo">星厨</div>
+        <div>
+          <p class="eyebrow">AI RESTAURANT ASSISTANT</p>
+          <h1>智能点餐中台</h1>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div><strong>5</strong><span>餐品分类</span></div>
+        <div><strong>30+</strong><span>训练餐品</span></div>
+        <div><strong>秒级</strong><span>对话响应</span></div>
+      </div>
+
+      <div class="quick-card">
+        <span>推荐试试</span>
+        <button class="quick" data-text="查看菜单">查看菜单</button>
+        <button class="quick" data-text="我要两份牛肉面">我要两份牛肉面</button>
+        <button class="quick" data-text="牛肉面多少钱">查价格</button>
+      </div>
+    </section>
+
+    <section class="chat-card">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">ONLINE BOT</p>
+          <h2>星厨点餐助手</h2>
+        </div>
+        <label class="engine-select">
+          <span>引擎</span>
+          <select id="chatType">
+            <option value="rasa">Rasa</option>
+            <option value="xunfei">科大讯飞</option>
+          </select>
+        </label>
+      </header>
+
+      <div id="chat" class="chat-area" aria-live="polite"></div>
+
+      <footer class="input-area">
+        <input id="msg" placeholder="例如：我要两份牛肉面" autocomplete="off" autofocus>
+        <button id="sendBtn" type="button">发送</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>

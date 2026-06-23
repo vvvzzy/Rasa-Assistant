@@ -1,0 +1,33 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# Rasa生成文件
+models/
+*.tar.gz
+.rasa/
+rasa.db
+
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# VS Code配置
+.vscode/
+*.code-workspace
+
+# 环境密钥（禁止上传真实密钥）
+.env
+*.env
+.env.local
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+
+# Streamlit缓存
+.streamlit/

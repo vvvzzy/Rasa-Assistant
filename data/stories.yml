@@ -1,0 +1,57 @@
+version: "3.1"
+stories:
+  - story: 进入后选分类再点餐
+    steps:
+      - intent: select_category
+      - action: action_show_category_items
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: confirm_order
+      - action: action_confirm_order
+
+  - story: 查价后加购
+    steps:
+      - intent: ask_price
+      - action: action_query_price
+      - intent: order_food
+      - action: action_add_to_cart
+
+  - story: 连续加购多份菜品
+    steps:
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: show_cart
+      - action: action_show_cart
+      - intent: confirm_order
+      - action: action_confirm_order
+
+  - story: 加购后删除单品
+    steps:
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: remove_food
+      - action: action_remove_from_cart
+      - intent: confirm_order
+      - action: action_confirm_order
+
+  - story: 查看菜单后选分类
+    steps:
+      - intent: show_menu
+      - action: action_show_categories
+      - intent: select_category
+      - action: action_show_category_items
+      - intent: order_food
+      - action: action_add_to_cart
+
+  - story: 加购后清空再重新点
+    steps:
+      - intent: order_food
+      - action: action_add_to_cart
+      - intent: clear_cart
+      - action: action_clear_cart
+      - intent: order_food
+      - action: action_add_to_cart

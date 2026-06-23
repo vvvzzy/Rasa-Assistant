@@ -1,0 +1,89 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - show_menu
+  - select_category
+  - ask_price
+  - order_food
+  - modify_order
+  - remove_food
+  - show_cart
+  - clear_cart
+  - confirm_order
+  - cancel_order
+  - goodbye
+
+entities:
+  - food
+  - quantity
+  - size
+  - category
+
+slots:
+  cart:
+    type: list
+    initial_value: []
+    influence_conversation: false
+    mappings:
+      - type: custom
+  food:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: food
+  quantity:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: quantity
+  size:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: size
+  category:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: category
+  order_status:
+    type: categorical
+    values:
+      - empty
+      - has_items
+      - confirmed
+    initial_value: empty
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "你好呀，我是你的智能点餐助手。你可以说：查看菜单、我要两份牛肉面、牛肉面多少钱、查看购物车。"
+  utter_goodbye:
+    - text: "再见！祝您用餐愉快～"
+  utter_cart_empty:
+    - text: "当前购物车还是空的哦，先告诉我你想吃什么吧~"
+  utter_default:
+    - text: "我暂时没理解，可以换一种说法试试，比如：我要两份牛肉面 / 牛肉面多少钱 / 查看菜单。"
+
+actions:
+  - action_show_categories
+  - action_show_category_items
+  - action_query_price
+  - action_add_to_cart
+  - action_remove_from_cart
+  - action_show_cart
+  - action_clear_cart
+  - action_modify_order
+  - action_confirm_order
+  - action_default_fallback

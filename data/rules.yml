@@ -1,0 +1,61 @@
+version: "3.1"
+rules:
+  - rule: 问候
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: 查看菜单（展示分类）
+    steps:
+      - intent: show_menu
+      - action: action_show_categories
+
+  - rule: 选择菜品分类
+    steps:
+      - intent: select_category
+      - action: action_show_category_items
+
+  - rule: 查询价格
+    steps:
+      - intent: ask_price
+      - action: action_query_price
+
+  - rule: 添加菜品到购物车
+    steps:
+      - intent: order_food
+      - action: action_add_to_cart
+
+  - rule: 修改订单
+    steps:
+      - intent: modify_order
+      - action: action_modify_order
+
+  - rule: 删除单品
+    steps:
+      - intent: remove_food
+      - action: action_remove_from_cart
+
+  - rule: 查看购物车
+    steps:
+      - intent: show_cart
+      - action: action_show_cart
+
+  - rule: 清空购物车
+    steps:
+      - intent: clear_cart
+      - action: action_clear_cart
+
+  - rule: 确认订单
+    steps:
+      - intent: confirm_order
+      - action: action_confirm_order
+
+  - rule: 取消订单
+    steps:
+      - intent: cancel_order
+      - action: action_clear_cart
+
+  - rule: 道别
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
